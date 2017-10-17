@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/lightskyblue"
+        android:gravity="center"
+        android:text="请选择日期"
+        android:textColor="@android:color/white"
+        android:textSize="25sp" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="80dp"
+            android:background="@color/aliceblue" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_margin="10dp"
+            android:background="#00000000"
+            android:orientation="horizontal">
+
+            <ListView
+                android:id="@+id/lv1"
+                android:scrollbars="none"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:divider="@null"
+                android:listSelector="@drawable/selector_date_picker"
+                tools:listitem="@layout/item_picker_date"></ListView>
+
+            <ListView
+                android:id="@+id/lv2"
+                android:scrollbars="none"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:divider="@null"
+                android:listSelector="@drawable/selector_date_picker"></ListView>
+
+            <ListView
+                android:id="@+id/lv3"
+                android:scrollbars="none"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#00000000"
+                android:divider="@null"
+                android:listSelector="@drawable/selector_date_picker"></ListView>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/sure"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/lightskyblue"
+            android:orientation="vertical"
+            android:text="确定"
+            android:textColor="@android:color/white"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@color/lightskyblue"
+            android:orientation="vertical"
+            android:text="取消"
+            android:textColor="@android:color/white"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
+    </LinearLayout>
+</LinearLayout>

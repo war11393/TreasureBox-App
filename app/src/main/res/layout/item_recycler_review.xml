@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    android:background="@drawable/selector_qt_review">
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/item_review_subject"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="评论人"
+        android:textSize="@dimen/textview_textsize_m"
+        android:textColor="#606060"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/item_review_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="回复"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="@dimen/textview_textsize_m"
+        android:textColor="#808080"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/item_review_object"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:text="被评论"
+        android:textSize="@dimen/textview_textsize_m"
+        android:textColor="#606060"/>
+
+    <TextView
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="："
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="@dimen/textview_textsize_m"
+        android:textColor="#808080"/>
+
+    <TextView
+        android:id="@+id/item_review_content"
+        android:layout_width="0dp"
+        android:layout_weight="11"
+        android:layout_height="wrap_content"
+        android:text="这里是评回内容"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:textSize="@dimen/textview_textsize_m"
+        android:textColor="#808080"/>
+
+</LinearLayout>

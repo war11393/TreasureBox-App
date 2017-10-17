@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    android:fitsSystemWindows="true">
+
+    <!--标题栏-->
+    <include layout="@layout/part_toolbar" />
+
+    <!--设置项-->
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--个人信息-->
+            <LinearLayout
+                android:id="@+id/user_main_userinfo"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_main_headimage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="15dp"
+                    android:src="#ddd"/>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/user_main_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="昵称"
+                        android:textColor="#808080"
+                        android:gravity="left|center_vertical"
+                        android:textSize="18sp"/>
+
+                    <TextView
+                        android:id="@+id/user_main_usernumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="账号"
+                        android:textColor="#aaa"
+                        android:gravity="left|center_vertical"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_20dp"/>
+
+            <!--机器人-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_robot"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="6dp"
+                    android:src="@drawable/user_robot"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Robot"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_2dp"/>
+
+            <!--个性化-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_personnal"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="6dp"
+                    android:src="@drawable/user_personal"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="个性化设置"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_2dp"/>
+
+            <!--小闹钟-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_remain"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="6dp"
+                    android:src="@drawable/user_remain"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="小闹钟"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_2dp"/>
+
+            <!--修改密码-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_changepass"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="6dp"
+                    android:src="@drawable/user_changepass"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="修改密码"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_20dp"/>
+
+            <!--关于我们-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_aboutus"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="6dp"
+                    android:src="@drawable/user_aboutus"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="关于我们"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_2dp"/>
+
+            <!--版本更新,暂不使用-->
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/user_main_menu_update"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="7dp"
+                    android:src="@drawable/user_update"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="版本更新"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+
+            <!--我要反馈-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_callus"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_height="48dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="9dp"
+                    android:scaleType="centerCrop"
+                    android:padding="6dp"
+                    android:src="@drawable/user_callus"
+                    android:background="#ddd"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="我要反馈"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#808080"
+                    android:fontFamily="serif"
+                    android:gravity="left|center_vertical"
+                    android:textSize="18sp"/>
+
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/part_next_gray"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_20dp"/>
+
+            <!--退出登录-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_unlogin"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="退出登录"
+                    android:textColor="@color/tomato"
+                    android:fontFamily="serif"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_2dp"/>
+            <include layout="@layout/part_subline_trans_2dp"/>
+
+            <!--退出-->
+            <LinearLayout
+                android:id="@+id/user_main_menu_exit"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/selector_user_menuitem"
+                android:clickable="true">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="退出"
+                    android:textColor="@color/tomato"
+                    android:fontFamily="serif"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+            <include layout="@layout/part_subline_trans_20dp"/>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>

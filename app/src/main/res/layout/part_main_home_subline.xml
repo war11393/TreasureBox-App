@@ -1,0 +1,38 @@
+<com.treasurebox.titwdj.treasurebox.Fragment.mainFragments.homeLayouts.discSubLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="16dp"
+    android:background="#ddd">
+
+    <TextView
+        android:id="@+id/main_home_sub_left"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="2dp"
+        android:layout_weight="6"
+        android:background="#aaa"
+        android:translationX="-150dp" />
+
+    <ImageView
+        android:id="@+id/main_home_sub_sub"
+        android:layout_width="0dp"
+        android:layout_height="12dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:alpha="0.0"
+        android:scaleX="0.1"
+        android:scaleY="0.1"
+        android:src="@drawable/part_home_diamond" />
+
+    <TextView
+        android:id="@+id/main_home_sub_right"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="2dp"
+        android:layout_weight="6"
+        android:background="#aaa"
+        android:translationX="150dp" />
+
+</com.treasurebox.titwdj.treasurebox.Fragment.mainFragments.homeLayouts.discSubLayout>

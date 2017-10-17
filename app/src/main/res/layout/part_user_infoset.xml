@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?><!--用户信息设置块-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp">
+
+    <!--放头像、昵称、性别-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/compinfo_headimage"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerCrop" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="昵称："
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/compinfo_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:hint="最多10个字哦"
+                    android:textColor="#808080"
+                    android:singleLine="true"
+                    android:maxLength="10"
+                    android:textColorHint="#ddd"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="性别："
+                    android:textSize="18sp" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp">
+
+                    <RadioButton
+                        android:id="@+id/compinfo_sex_man"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/selector_radiobutton"
+                        android:text="男"
+                        android:textColor="#808080"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/compinfo_sex_woman"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/selector_radiobutton"
+                        android:text="女"
+                        android:textColor="#808080"
+                        android:textSize="18sp" />
+
+                    <RadioButton
+                        android:id="@+id/compinfo_sex_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/selector_radiobutton"
+                        android:text="保密"
+                        android:textColor="#808080"
+                        android:textSize="18sp" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--选择所在地-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="所在地："
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/compinfo_citypic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:text="山西省-太原市-尖草坪区"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--选择生日,显示相关信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="生日："
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/compinfo_timepic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:text="1970-00-00"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/compinfo_birthinfo"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/compinfo_age"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"
+            android:text="年龄：0"/>
+
+        <TextView
+            android:id="@+id/compinfo_xingzuo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:textSize="18sp"
+            android:text="星座：双鱼座"/>
+
+    </LinearLayout>
+
+    <!--选择血型-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="血型："
+            android:textSize="18sp" />
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/compinfo_bloodtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:spinnerMode="dropdown"
+            android:textAlignment="center"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--选择工作-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="职业："
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/compinfo_workinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:hint="请输入您的职业信息"
+            android:textColor="#808080"
+            android:textColorHint="#ddd"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--选择爱好-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="兴趣爱好："
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/compinfo_hobby"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:hint="可使用空格区分多个爱好"
+            android:textColor="#808080"
+            android:textColorHint="#ddd"
+            android:singleLine="true"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--填写个性签名-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="个性签名："
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/compinfo_sign"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:hint="有些话，历久弥新..."
+            android:textColor="#808080"
+            android:textColorHint="#ddd"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <!--设置系统称谓-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="系统角色："
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/compinfo_tbname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:hint="主人也给我起个名字吧～"
+            android:textColor="#808080"
+            android:textColorHint="#ddd"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:maxLength="4"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/compinfo_confirmbtn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/selector_button"
+        android:text="确认" />
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/user_remain_with_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp">
+
+        <EditText
+            android:id="@+id/user_remain_custom_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:hint="备注"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:textColor="#808080"
+            android:textColorHint="#ddd"/>
+        <EditText
+            android:id="@+id/user_remain_custom_phone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:hint="自定义相关手机号"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:textColor="#808080"
+            android:textColorHint="#ddd"/>
+
+        <Button
+            android:id="@+id/user_remain_with_button"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:background="@drawable/selector_button_noradiu"
+            android:textColor="#fff"
+            android:text="完成"
+            style="@style/Widget.AppCompat.Button.Borderless"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/user_robot_left_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_margin="3dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/user_robot_robot" />
+
+        <TextView
+            android:id="@+id/user_robot_left_msg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:textColor="#fff"
+            android:background="@drawable/selector_button"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/user_robot_right_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="3dp">
+
+        <TextView
+            android:id="@+id/user_robot_right_msg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:textColor="#808080"
+            android:background="@drawable/selector_graybutton"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/user_robot_userhead"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/part_defaultimage"/>
+
+    </LinearLayout>
+
+</LinearLayout>

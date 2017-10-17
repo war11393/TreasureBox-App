@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#eee"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="3dp"
+            android:background="#fff">
+
+            <LinearLayout
+                android:id="@+id/note_write_total"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp">
+
+                <EditText
+                    android:id="@+id/note_write_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@null"
+                    android:hint="写点什么吧..."
+                    android:textColor="#808080"
+                    android:gravity="start"
+                    android:textSize="@dimen/textview_textsize_xh"
+                    android:textColorHint="#ddd"/>
+
+                <!--心情选择组-->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/note_write_heart1"
+                        android:clickable="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/note_heartsty_1"/>
+                    <ImageView
+                        android:id="@+id/note_write_heart2"
+                        android:clickable="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/note_heartsty_2"/>
+                    <ImageView
+                        android:id="@+id/note_write_heart3"
+                        android:clickable="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/note_heartsty_32"/>
+                    <ImageView
+                        android:id="@+id/note_write_heart4"
+                        android:clickable="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/note_heartsty_4"/>
+                    <ImageView
+                        android:id="@+id/note_write_heart5"
+                        android:clickable="true"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/note_heartsty_5"/>
+
+                </LinearLayout>
+
+                <GridLayout
+                    android:id="@+id/note_write_photos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></GridLayout>
+
+                <CheckBox
+                    android:id="@+id/note_write_locate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/MyCheckBox"
+                    android:text="记录地点"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/textview_textsize_xh"/>
+
+                <!--关于谁设置-->
+                <LinearLayout
+                    android:id="@+id/note_write_with"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="14dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/layer_list_border_topline">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#808080"
+                        android:gravity="left|center_vertical"
+                        android:text="关于谁"
+                        android:textSize="@dimen/textview_textsize_xh"/>
+
+                    <TextView
+                        android:id="@+id/note_write_with_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#ddd"
+                        android:gravity="right|center_vertical"
+                        android:text="无"
+                        android:textSize="@dimen/textview_textsize_m"
+                        android:singleLine="true"
+                        android:ellipsize="end"/>
+
+                    <ImageView
+                        android:scaleType="centerCrop"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_margin="3dp"
+                        android:src="@drawable/part_next_gray"/>
+
+                </LinearLayout>
+
+                <!--权限设置列-->
+                <LinearLayout
+                    android:id="@+id/note_write_permission"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="14dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/layer_list_border_topline">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#808080"
+                        android:gravity="left|center_vertical"
+                        android:text="谁能看见"
+                        android:textSize="@dimen/textview_textsize_xh"/>
+
+                    <TextView
+                        android:id="@+id/note_write_permission_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="#ddd"
+                        android:gravity="right|center_vertical"
+                        android:text="所有好友"
+                        android:textSize="@dimen/textview_textsize_m"/>
+
+                    <ImageView
+                        android:scaleType="centerCrop"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:layout_margin="3dp"
+                        android:src="@drawable/part_next_gray"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/note_write_confirm"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:gravity="center"
+            android:text="记录"
+            android:background="@drawable/selector_button"
+            style="?android:attr/borderlessButtonStyle"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

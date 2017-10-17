@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--自定义的浮动菜单-->
+<com.getbase.floatingactionbutton.FloatingActionsMenu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/float_menu"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    app:elevation="8dp"
+    fab:fab_addButtonSize="mini"
+    fab:fab_addButtonColorNormal="@color/white_semi_transparent"
+    fab:fab_addButtonColorPressed="@color/white_semi_transparent_pressed"
+    fab:fab_addButtonPlusIconColor="@color/blue_semi_transparent"
+    fab:fab_labelStyle="@style/menu_labels_style"
+    android:layout_marginBottom="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginEnd="16dp">
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/note_fab_add_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_title="添加纸条"
+        fab:fab_colorNormal="@color/blue_semi_transparent"
+        fab:fab_colorPressed="@color/white_semi_transparent_pressed"
+        app:fab_icon="@drawable/note_add_white" />
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/note_fab_friend_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_title="好友纸条"
+        fab:fab_colorNormal="@color/blue_semi_transparent"
+        fab:fab_colorPressed="@color/white_semi_transparent_pressed"
+        app:fab_icon="@drawable/note_friend_white" />
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/note_fab_my_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_title="我的纸条"
+        fab:fab_colorNormal="@color/blue_semi_transparent"
+        fab:fab_colorPressed="@color/white_semi_transparent_pressed"
+        app:fab_icon="@drawable/note_my_white" />
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/note_fab_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        fab:fab_size="mini"
+        fab:fab_title="返回主页"
+        fab:fab_colorNormal="@color/blue_semi_transparent"
+        fab:fab_colorPressed="@color/white_semi_transparent_pressed"
+        app:fab_icon="@drawable/fab_home" />
+
+</com.getbase.floatingactionbutton.FloatingActionsMenu>

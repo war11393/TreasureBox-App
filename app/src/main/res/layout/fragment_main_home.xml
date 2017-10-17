@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0">
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/main_home_image"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:background="#d8d8d8"/>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp">
+
+        <LinearLayout
+            android:id="@+id/main_advice_container"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff">
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/textview_textsize_m"
+                android:textColor="@color/colorAccent"
+                android:gravity="center_horizontal"
+                android:text="维度分析图"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:background="#fafafa">
+
+                <com.treasurebox.titwdj.treasurebox.Custom.View.AbilityToFigure
+                    android:id="@+id/main_home_ability"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <com.treasurebox.titwdj.treasurebox.Custom.View.AbilityToFigure
+                    android:id="@+id/main_home_emotion"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center_horizontal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="#fafafa">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/textview_textsize_m"
+                    android:text="总体分析"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/textview_textsize_m"
+                    android:text="纸条分析"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="center_horizontal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_margin="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp">
+
+        <LinearLayout
+            android:id="@+id/main_home_active"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorAccent"
+                android:text="好友动态"
+                android:layout_marginBottom="5dp"
+                android:textSize="@dimen/textview_textsize_m"/>
+
+            <android.support.v7.widget.CardView
+                app:cardElevation="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/main_home_active_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="#808080"
+                    android:text="正在加载好友动态..."
+                    android:textSize="@dimen/textview_textsize_xh"
+                    android:background="#fafafa"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="1dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/main_home_suggest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="50dp"
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+            android:background="#fff">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textColor="@color/colorAccent"
+                android:text="生活小贴士"
+                android:layout_marginBottom="5dp"
+                android:textSize="@dimen/textview_textsize_m"/>
+
+            <android.support.v7.widget.CardView
+                app:cardElevation="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/main_home_suggest_content1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:textColor="#808080"
+                    android:text="正在加载饮食推荐..."
+                    android:layout_marginLeft="-24dp"
+                    android:layout_marginRight="-16dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="18dp"
+                    android:paddingLeft="39dp"
+                    android:paddingRight="31dp"
+                    android:background="@drawable/suggest1"
+                    android:textSize="@dimen/textview_textsize_h"/>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                app:cardElevation="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/main_home_suggest_content2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:textColor="#808080"
+                    android:text="正在加载情感推荐..."
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="-24dp"
+                    android:layout_marginRight="-16dp"
+                    android:paddingBottom="30dp"
+                    android:paddingTop="18dp"
+                    android:paddingLeft="39dp"
+                    android:paddingRight="31dp"
+                    android:background="@drawable/suggest1"
+                    android:textSize="@dimen/textview_textsize_h"/>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/textview_textsize_m"
+        android:text="到底了哦"
+        android:layout_marginBottom="-22dp"
+        android:textColor="#ccc"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="-50dp"
+        android:src="@drawable/rab_wuyu"
+        android:layout_gravity="center_horizontal"/>
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+

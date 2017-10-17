@@ -1,0 +1,118 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--透明状态栏主题-->
+    <style name="MyStatusBarThemeWithBlue" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="19">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+    </style>
+
+    <!--应用封面样式-->
+    <style name="Splash" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!--蓝色主题   1    -->
+    <style name="BlueTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#0288d1</item>
+        <item name="colorAccent">#6889ff</item>
+        <item name="primaryC">#03a9f4</item>
+        <item name="primaryDarkC">#0288d1</item>
+    </style>
+
+    <!--深蓝色主题   2   -->
+    <style name="DarkBlueTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#303f9f</item>
+        <item name="colorAccent">#64ffda</item>
+        <item name="primaryC">#3f51b5</item>
+        <item name="primaryDarkC">#303f9f</item>
+    </style>
+
+    <!--红色主题   3   -->
+    <style name="RedTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#c2185b</item>
+        <item name="colorAccent">#ff4081</item>
+        <item name="primaryC">#e91e63</item>
+        <item name="primaryDarkC">#c2185b</item>
+    </style>
+
+    <!--绿色主题   4   -->
+    <style name="GreenTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#afb42b</item>
+        <item name="colorAccent">#eeff41</item>
+        <item name="primaryC">#cddc39</item>
+        <item name="primaryDarkC">#afb42b</item>
+    </style>
+
+    <!--黄色主题   5   -->
+    <style name="YellowTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#fbc02d</item>
+        <item name="colorAccent">#ffff00</item>
+        <item name="primaryC">#ffeb3b</item>
+        <item name="primaryDarkC">#fbc02d</item>
+    </style>
+
+    <!--橘黄色主题   6   -->
+    <style name="OrangeTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#f57c00</item>
+        <item name="colorAccent">#ffd740</item>
+        <item name="primaryC">#ff9800</item>
+        <item name="primaryDarkC">#f57c00</item>
+    </style>
+
+    <!--紫色主题   7   -->
+    <style name="PurpleTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#7b1fa2</item>
+        <item name="colorAccent">#e040fb</item>
+        <item name="primaryC">#9c27b0</item>
+        <item name="primaryDarkC">#7b1fa2</item>
+    </style>
+
+    <!--宝石绿主题   8   -->
+    <style name="GreenPTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#00796b</item>
+        <item name="colorAccent">#64ffda</item>
+        <item name="primaryC">#009688</item>
+        <item name="primaryDarkC">#00796b</item>
+    </style>
+
+    <!--灰黑主题   9   -->
+    <style name="BlackTheme" parent="MyStatusBarThemeWithBlue">
+        <item name="colorPrimaryDark">#212121</item>
+        <item name="colorAccent">#ff6d00</item>
+        <item name="primaryC">#424242</item>
+        <item name="primaryDarkC">#212121</item>
+    </style>
+
+    <!--浮动按钮的样式-->
+    <style name="menu_labels_style">
+        <item name="android:background">@drawable/shape_fab_background</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--时间选择器样式-->
+    <style name="Dialog" parent="android:style/Theme.Dialog">
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!--复选框样式-->
+    <style name="MyCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#808080</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+    </style>
+
+    <!--灰色复选框-->
+    <style name="grayCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#a0a0a0</item>
+        <item name="colorControlActivated">?attr/colorAccent</item>
+    </style>
+
+</resources>

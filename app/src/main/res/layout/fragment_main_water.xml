@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/water"
+    android:paddingTop="60dp"
+    android:layout_marginBottom="10dp"
+    android:paddingBottom="80dp">
+
+    <!--默认视图-->
+    <LinearLayout
+        android:id="@+id/main_water_image"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:alpha="0.6"
+        android:layout_weight="3">
+
+        <ImageView
+            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/waterbottle"
+            />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/main_water_history_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="3"
+        android:background="@color/white_semi_transparent"/>
+
+    <!--扔瓶子视图-->
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/main_water_edit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="3"
+        android:background="@color/white_semi_transparent"
+        android:gravity="start"
+        android:hint="请写下想传出的话"
+        android:padding="5dp"
+        android:textColor="#808080"
+        android:textColorHint="#a0a0a0"
+        android:textSize="@dimen/textview_textsize_xh" />
+
+    <!--捡瓶子视图-->
+    <TextView
+        android:id="@+id/main_water_text"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:fontFamily="serif"
+        android:background="@color/white_semi_transparent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:textColorHint="#a0a0a0"
+        android:textColor="#808080"
+        android:textSize="@dimen/textview_textsize_xh"
+        android:gravity="start"/>
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/main_water_review"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/white_semi_transparent"/>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/hate_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="36dp">
+
+        <CheckBox
+            android:id="@+id/main_water_not_look"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="不再接收此瓶"
+            android:layout_gravity="center_vertical"
+            android:textColor="#a0a0a0"
+            android:theme="@style/grayCheckBox"
+            android:layout_marginLeft="10dp"/>
+
+        <ImageView
+            android:id="@+id/main_water_write_review"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/note_review_pl"/>
+
+    </LinearLayout>
+
+    <!--评论-->
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/main_water_review_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/main_water_review_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="请输入评论"
+            android:textColorHint="#a0a0a0"
+            android:textColor="#808080"
+            android:textSize="@dimen/textview_textsize_m"/>
+
+        <Button
+            android:id="@+id/main_water_send_review"
+            android:layout_width="60dp"
+            android:layout_height="34dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/selector_button"
+            android:text="评论"/>
+
+    </LinearLayout>
+
+    <!--按钮组-->
+    <LinearLayout
+        android:id="@+id/button_container"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="5dp">
+
+        <Button
+            android:id="@+id/main_water_get"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/selector_button"
+            android:text="捡瓶子"/>
+
+        <Button
+            android:id="@+id/main_water_history"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/selector_button"
+            android:text="查看历史"/>
+
+        <Button
+            android:id="@+id/main_water_send"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="34dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/selector_button"
+            android:text="扔瓶子"/>
+
+    </LinearLayout>
+
+</LinearLayout>

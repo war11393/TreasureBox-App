@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activity_note"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/note_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/note_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tool_bar_height_no_status"
+            android:background="?attr/primaryC"
+            android:title=""
+            app:contentInsetStart="0dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_scrollFlags="scroll|snap|enterAlways">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/note_toolbar_back"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/part_back"
+                    android:background="@drawable/selector_button"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:id="@+id/note_toolbar_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginRight="40dp"
+                    android:text="TreasureBox"
+                    android:textColor="#fff"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textSize="18sp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <!--下拉刷新组件-->
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/note_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/note_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <include layout="@layout/part_floatmenu_note" />
+
+</android.support.design.widget.CoordinatorLayout>

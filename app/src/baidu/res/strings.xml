@@ -1,0 +1,4 @@
+<resources>
+    <!--用于编写特定渠道的功能，这里只改个名字-->
+    <string name="app_name">TB-Baidu</string>
+</resources>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="20dp">
+
+    <include layout="@layout/part_subline_gray_1dp" />
+    <LinearLayout
+        android:id="@+id/note_permission_all"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffffff">
+
+        <ImageView
+            android:id="@+id/note_permission_all_box"
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/part_ok_ok"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:text="所有好友"
+            android:textColor="#808080"/>
+
+    </LinearLayout>
+    <include layout="@layout/part_subline_gray_ml40_1dp" />
+
+    <LinearLayout
+        android:id="@+id/note_permission_only"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffffff"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/note_permission_only_box"
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:text="仅自己"
+            android:textColor="#808080"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/part_subline_gray_1dp" />
+    <LinearLayout
+        android:id="@+id/note_permission_allow"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffffff">
+
+        <ImageView
+            android:id="@+id/note_permission_allow_box"
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:text="部分好友"
+            android:textColor="#808080"/>
+
+        <ImageView
+            android:id="@+id/note_permission_allow_img"
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/part_close"/>
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/note_permission_allow_list"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <include layout="@layout/part_subline_gray_ml40_1dp" />
+
+    <LinearLayout
+        android:id="@+id/note_permission_who_not"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#ffffffff">
+
+        <ImageView
+            android:id="@+id/note_permission_who_not_box"
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:textSize="@dimen/textview_textsize_xh"
+            android:text="不给谁看"
+            android:textColor="#808080"/>
+
+        <ImageView
+            android:id="@+id/note_permission_who_not_img"
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/part_close"/>
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:visibility="gone"
+        android:id="@+id/note_permission_who_not_list"
+        android:paddingLeft="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+    <include layout="@layout/part_subline_gray_1dp" />
+
+    <Button
+        android:id="@+id/note_permission_btn"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@drawable/selector_button_noradiu"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:text="完成"
+        android:textColor="#fff"/>
+
+</LinearLayout>

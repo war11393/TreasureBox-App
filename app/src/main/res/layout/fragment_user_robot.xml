@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/msg_recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="#ddd">
+
+        <EditText
+            android:id="@+id/user_robot_input_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="说些什么吧..."
+            android:textColor="#808080"
+            android:textColorHint="#ccc"
+            android:paddingLeft="10dp"
+            android:maxLines="3"/>
+
+        <Button
+            android:id="@+id/user_robot_send"
+            android:layout_width="60dp"
+            android:layout_gravity="center_vertical"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/selector_graybutton"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:text="发送"/>
+
+    </LinearLayout>
+
+</LinearLayout>

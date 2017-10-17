@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:cardElevation="0dp">
+
+        <EditText
+            android:padding="8dp"
+            android:id="@+id/user_callus_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"
+            android:hint="请在这里输入您要反馈的信息"
+            android:gravity="start"
+            android:textColorHint="#ddd"
+            android:textColor="#808080"
+            android:background="@null"/>
+
+    </android.support.v7.widget.CardView>
+
+    <Button
+        android:id="@+id/user_callus_confirm"
+        android:layout_width="120dp"
+        android:layout_height="36dp"
+        android:text="提交"
+        android:layout_gravity="end"
+        android:layout_marginRight="15dp"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:background="@drawable/selector_button"
+        />
+
+</LinearLayout>

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+
+    <LinearLayout
+        android:id="@+id/user_personal1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="经典蓝："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC1"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC1"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="深空蓝："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC2"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC2"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent2"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal3"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="玫瑰红："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC3"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC3"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent3"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="奇异绿："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC4"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC4"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent4"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="香蕉黄："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC5"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC5"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent5"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal6"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="鲜橙黄："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC6"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC6"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent6"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal7"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="深邃紫："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC7"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC7"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent7"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal8"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="宝石绿："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC8"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC8"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent8"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/user_personal9"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:text="典雅黑："/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="主色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryC9"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="深色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/primaryDarkC9"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="强调色"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:textSize="@dimen/textview_textsize_m"
+            android:textColor="@color/white"
+            android:background="@color/colorAccent9"/>
+
+    </LinearLayout>
+
+</LinearLayout>

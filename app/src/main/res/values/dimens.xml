@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="tool_bar_height">65dp</dimen>
+    <dimen name="tool_bar_height_no_status">40dp</dimen>
+
+    <dimen name="textview_textsize_m">14sp</dimen>
+    <dimen name="textview_textsize_h">15sp</dimen>
+    <dimen name="textview_textsize_xh">16sp</dimen>
+    <dimen name="textview_textsize_xxh">18sp</dimen>
+    <dimen name="textview_textsize_xxxh">20sp</dimen>
+
+    <dimen name="layout_little_size">36dp</dimen>
+
+</resources>

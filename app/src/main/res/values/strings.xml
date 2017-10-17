@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TreasureBox</string>
+
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+
+    <string name="main_addfriend_search_fail">主人的好友还不曾拥有本宝宝\n但主人可以单向添加哦O(∩_∩)O</string>
+
+    <!--血型列表-->
+    <string-array name="blood_type">
+        <item>O型</item>
+        <item>AB型</item>
+        <item>A型</item>
+        <item>B型</item>
+        <item>其他</item>
+    </string-array>
+
+</resources>
