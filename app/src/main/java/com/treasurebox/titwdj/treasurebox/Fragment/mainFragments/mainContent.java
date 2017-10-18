@@ -22,6 +22,7 @@ import com.treasurebox.titwdj.treasurebox.Activity.NoteActivity;
 import com.treasurebox.titwdj.treasurebox.Custom.View.AbilityToFigure;
 import com.treasurebox.titwdj.treasurebox.Model.dbflow.FriendList;
 import com.treasurebox.titwdj.treasurebox.Model.dbflow.FriendList_Table;
+import com.treasurebox.titwdj.treasurebox.Model.nother.MoodAdvice;
 import com.treasurebox.titwdj.treasurebox.Model.nother.Note;
 import com.treasurebox.titwdj.treasurebox.Model.nother.Suggest;
 import com.treasurebox.titwdj.treasurebox.R;
@@ -48,6 +49,7 @@ import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.client;
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.dialog;
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.maxLoadTimes;
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.serversLoadTimes;
+import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.showErrorToast;
 
 /**
  * Created by 11393 on 2017/8/3.
@@ -59,14 +61,15 @@ public class mainContent extends Fragment {
     private static final String TAG = "mainContent";
 
     View view;
-    ImageView imageview;
+    ImageView imageview, hot1, hot2;
     LinearLayout adviceContainer;
     AbilityToFigure abilityView, emotionView;
-    TextView suggest1, suggest2, active;
+    TextView active, textView;
 
     private HeWeather5 weather = new HeWeather5();
     protected static String area = "";
     private SharedPreferences sharedPreferences;
+    private static int count = 1;
 
     //初始化视图
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -168,62 +171,6 @@ public class mainContent extends Fragment {
         });
     }
 
-    //获取系统建议
-    private void getSuggest(){
-        RequestBody body = new FormBody.Builder().add("number", MyApplication.user.getNumber()).build();
-        HttpUtil.sendPostOkHttpRequest(HttpPathUtil.getSuggest(), body, true, new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
-                if(e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
-                {
-                    serversLoadTimes++;
-                    client.newCall(call.request()).enqueue(this);
-                } else {
-                    serversLoadTimes = 0;
-                    e.printStackTrace();
-                    HttpUtil.showError();
-                }
-            }
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
-                final String resp = response.body().string();
-                LogUtil.d(TAG, resp);
-                if (Util.JsonUtils.isGoodJson(resp)) {
-                    final Suggest suggest = new Gson().fromJson(resp, Suggest.class);
-                    if (getActivity() != null) {
-                        getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                String[] strings = suggest.getDiet().toString().split("sss");
-                                LogUtil.d(TAG, strings.length + "");
-                                for (int i = 0; i < strings.length; i++) {
-                                    if (i == 0) {
-                                        suggest1.setText(strings[0].trim());
-                                    } else {
-                                        suggest1.setText(suggest1.getText().toString().trim() + "\n" + strings[i].trim());
-                                    }
-                                }
-                                suggest2.setText(suggest.getPoint().toString().trim());
-                            }
-                        });
-                    }
-                } else {
-                    if (getActivity() != null) {
-                        getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                suggest1.setText("系统正忙...");
-                                suggest2.setText("系统正忙...");
-                            }
-                        });
-                    }
-                }
-            }
-        });
-    }
-
     //获取纸条数据--好友的纸条
     private void getMyFriendNotes() {
         RequestBody body = new FormBody.Builder()
@@ -308,15 +255,56 @@ public class mainContent extends Fragment {
         });
     }
 
+    //HTTP请求-获取建议数据
+    private void getAdviceData() {
+        RequestBody body = new FormBody.Builder().add("number", MyApplication.user.getNumber()).build();
+        HttpUtil.sendPostOkHttpRequest(HttpPathUtil.getMoodAdvice(), body, true, new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
+                if (e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
+                {
+                    serversLoadTimes++;
+                    client.newCall(call.request()).enqueue(this);
+                } else {
+                    serversLoadTimes = 0;
+                    e.printStackTrace();
+                    HttpUtil.showError();
+                }
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                serversLoadTimes = 0;
+                dialog.dismiss();
+                final String resp = response.body().string();
+                LogUtil.d(TAG, resp);
+                if (Util.JsonUtils.isGoodJson(resp)) {
+                    final MoodAdvice ma = new Gson().fromJson(resp, MoodAdvice.class);
+                    if (getActivity() != null) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                textView.setText(ma.getAdvice());
+                            }
+                        });
+                    }
+                } else {
+                    showErrorToast();
+                }
+            }
+        });
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        if (getActivity() != null) {
+        if (count == 1 && getActivity() != null) {
             getActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     getMyFriendNotes();
-                    getSuggest();
+                    getAdviceData();
                 }
             });
         }
@@ -340,13 +328,33 @@ public class mainContent extends Fragment {
     private void initView(View view) {
         adviceContainer = (LinearLayout) view.findViewById(R.id.main_advice_container);
         imageview = (ImageView) view.findViewById(R.id.main_home_image);
+        hot1 = (ImageView) view.findViewById(R.id.main_home_hot1);//改变人生轨迹的一次经历
+        hot2 = (ImageView) view.findViewById(R.id.main_home_hot2);//增加生活幸福感的n种方式
         abilityView = (AbilityToFigure) view.findViewById(R.id.main_home_ability);
         emotionView = (AbilityToFigure) view.findViewById(R.id.main_home_emotion);
-        suggest1 = (TextView) view.findViewById(R.id.main_home_suggest_content1);
-        suggest2 = (TextView) view.findViewById(R.id.main_home_suggest_content2);
         active = (TextView) view.findViewById(R.id.main_home_active_content);
+        textView = (TextView) view.findViewById(R.id.advice_text);
         setActiveClick();
         loadBingPic();
+
+        hot1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), FragmentActivitys.class);
+                intent.putExtra(FragmentActivitys.extra_title, "改变人生轨迹的一次经历");
+                intent.putExtra(FragmentActivitys.extra_flag, FragmentActivitys.hot1);
+                getActivity().startActivity(intent);
+            }
+        });
+        hot2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), FragmentActivitys.class);
+                intent.putExtra(FragmentActivitys.extra_title, "增加生活幸福感的n种方式");
+                intent.putExtra(FragmentActivitys.extra_flag, FragmentActivitys.hot2);
+                getActivity().startActivity(intent);
+            }
+        });
 
         if (MyApplication.user != null) {
             adviceContainer.setOnClickListener(new View.OnClickListener() {

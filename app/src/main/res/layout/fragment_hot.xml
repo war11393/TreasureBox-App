@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#eee">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/hot_recycler"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v7.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="#ddd">
+
+        <EditText
+            android:id="@+id/hot_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="请输入您的意见"
+            android:textColorHint="#ccc"
+            android:textColor="#808080"
+            android:textSize="@dimen/textview_textsize_xh"/>
+
+        <Button
+            android:id="@+id/hot_commit"
+            android:layout_width="54dp"
+            android:layout_height="26dp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:background="@drawable/selector_button"
+            android:text="发表"/>
+
+    </LinearLayout>
+
+</LinearLayout>

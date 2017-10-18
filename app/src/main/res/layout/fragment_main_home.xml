@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#f0f0f0">
 
+    <!--必应抓图-->
     <android.support.v7.widget.CardView
         android:layout_margin="6dp"
         android:layout_width="match_parent"
@@ -21,6 +22,7 @@
 
     </android.support.v7.widget.CardView>
 
+    <!--个人状态图-->
     <android.support.v7.widget.CardView
         android:layout_margin="6dp"
         android:layout_width="match_parent"
@@ -35,13 +37,15 @@
             android:background="#fff">
 
             <TextView
-                android:layout_marginTop="5dp"
+                android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/textview_textsize_m"
-                android:textColor="@color/colorAccent"
+                android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="维度分析图"/>
+                android:text="个人状态图"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/textview_textsize_m" />
+
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -104,6 +108,7 @@
 
     </android.support.v7.widget.CardView>
 
+    <!--好友动态-->
     <android.support.v7.widget.CardView
         android:layout_margin="6dp"
         android:layout_width="match_parent"
@@ -151,24 +156,18 @@
 
     </android.support.v7.widget.CardView>
 
+    <!--情感建议-->
     <android.support.v7.widget.CardView
-        android:layout_marginTop="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="6dp"
         app:cardElevation="1dp">
 
         <LinearLayout
             android:orientation="vertical"
-            android:id="@+id/main_home_suggest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:layout_marginTop="5dp"
-            android:padding="5dp"
-            android:background="#fff">
+            android:padding="5dp">
 
             <TextView
                 android:layout_width="match_parent"
@@ -176,56 +175,89 @@
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:textColor="@color/colorAccent"
-                android:text="生活小贴士"
+                android:text="情感小贴士"
+                android:layout_marginBottom="5dp"
+                android:textSize="@dimen/textview_textsize_m"/>
+
+            <TextView
+                android:id="@+id/advice_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="left"
+                android:textColor="#808080"
+                android:fontFamily="serif"
+                android:textSize="@dimen/textview_textsize_h"
+                android:text="正在加载相关建议..."
+                android:layout_marginLeft="-24dp"
+                android:layout_marginRight="-16dp"
+                android:paddingBottom="30dp"
+                android:paddingTop="18dp"
+                android:paddingLeft="39dp"
+                android:paddingRight="31dp"
+                android:background="@drawable/suggest1" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <!--话题圈-->
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        app:cardElevation="1dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:textColor="@color/colorAccent"
+                android:text="话题圈"
                 android:layout_marginBottom="5dp"
                 android:textSize="@dimen/textview_textsize_m"/>
 
             <android.support.v7.widget.CardView
-                app:cardElevation="0dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
 
-                <TextView
-                    android:id="@+id/main_home_suggest_content1"
+                <ImageView
+                    android:id="@+id/main_home_hot1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="left"
-                    android:textColor="#808080"
-                    android:text="正在加载饮食推荐..."
-                    android:layout_marginLeft="-24dp"
-                    android:layout_marginRight="-16dp"
-                    android:paddingBottom="30dp"
-                    android:paddingTop="18dp"
-                    android:paddingLeft="39dp"
-                    android:paddingRight="31dp"
-                    android:background="@drawable/suggest1"
-                    android:textSize="@dimen/textview_textsize_h"/>
+                    android:layout_height="130dp"
+                    android:src="@drawable/home_hot1"
+                    android:scaleType="fitXY"/>
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                app:cardElevation="0dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
 
-                <TextView
-                    android:id="@+id/main_home_suggest_content2"
+                <ImageView
+                    android:id="@+id/main_home_hot2"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="left"
-                    android:textColor="#808080"
-                    android:text="正在加载情感推荐..."
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="-24dp"
-                    android:layout_marginRight="-16dp"
-                    android:paddingBottom="30dp"
-                    android:paddingTop="18dp"
-                    android:paddingLeft="39dp"
-                    android:paddingRight="31dp"
-                    android:background="@drawable/suggest1"
-                    android:textSize="@dimen/textview_textsize_h"/>
+                    android:layout_height="130dp"
+                    android:src="@drawable/home_hot2"
+                    android:layout_marginBottom="-1dp"
+                    android:scaleType="fitXY"/>
 
             </android.support.v7.widget.CardView>
 
@@ -233,6 +265,7 @@
 
     </android.support.v7.widget.CardView>
 
+    <!--底部提醒-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

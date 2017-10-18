@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 import com.treasurebox.titwdj.treasurebox.Custom.MyApplication;
 import com.treasurebox.titwdj.treasurebox.Model.nother.MoodAdvice;
 import com.treasurebox.titwdj.treasurebox.Model.nother.MoodValue;
+import com.treasurebox.titwdj.treasurebox.Model.nother.Suggest;
 import com.treasurebox.titwdj.treasurebox.R;
 import com.treasurebox.titwdj.treasurebox.Utils.HttpPathUtil;
 import com.treasurebox.titwdj.treasurebox.Utils.HttpUtil;
@@ -24,6 +25,7 @@ import com.treasurebox.titwdj.treasurebox.Utils.Util;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.Collections;
 import java.util.List;
 
 import okhttp3.Call;
@@ -48,7 +50,7 @@ public class adviceDetail extends Fragment {
             {800f, 750f, 780f, 150f, 800f, 800f, 500f}};
 
     LineChartView lineChart;
-    TextView textView;
+    TextView suggest1, suggest2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,8 +63,15 @@ public class adviceDetail extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        getValueData();
-        getAdviceData();
+        if (getActivity() != null) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    getValueData();
+                    getSuggest();
+                }
+            });
+        }
     }
 
     //HTTP请求-获取折线数据
@@ -95,6 +104,7 @@ public class adviceDetail extends Fragment {
                             @Override
                             public void run() {
                                 List<MoodValue> moodValues = JSON.parseArray(resp, MoodValue.class);
+                                Collections.reverse(moodValues);
                                 setLineData(moodValues);
                             }
                         });
@@ -106,14 +116,14 @@ public class adviceDetail extends Fragment {
         });
     }
 
-    //HTTP请求-获取建议数据
-    private void getAdviceData() {
+    //获取系统建议
+    private void getSuggest(){
         RequestBody body = new FormBody.Builder().add("number", MyApplication.user.getNumber()).build();
-        HttpUtil.sendPostOkHttpRequest(HttpPathUtil.getMoodAdvice(), body, true, new Callback() {
+        HttpUtil.sendPostOkHttpRequest(HttpPathUtil.getSuggest(), body, true, new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
-                if (e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
+                if(e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
                 {
                     serversLoadTimes++;
                     client.newCall(call.request()).enqueue(this);
@@ -123,25 +133,40 @@ public class adviceDetail extends Fragment {
                     HttpUtil.showError();
                 }
             }
-
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;
-                dialog.dismiss();
+                serversLoadTimes = 0;dialog.dismiss();
                 final String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {
-                    final MoodAdvice ma = new Gson().fromJson(resp, MoodAdvice.class);
+                    final Suggest suggest = new Gson().fromJson(resp, Suggest.class);
                     if (getActivity() != null) {
                         getActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                textView.setText(ma.getAdvice());
+                                String[] strings = suggest.getDiet().toString().split("sss");
+                                LogUtil.d(TAG, strings.length + "");
+                                for (int i = 0; i < strings.length; i++) {
+                                    if (i == 0) {
+                                        suggest1.setText(strings[0].trim());
+                                    } else {
+                                        suggest1.setText(suggest1.getText().toString().trim() + "\n" + strings[i].trim());
+                                    }
+                                }
+                                suggest2.setText(suggest.getPoint().toString().trim());
                             }
                         });
                     }
                 } else {
-                    showErrorToast();
+                    if (getActivity() != null) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                suggest1.setText("系统正忙...");
+                                suggest2.setText("系统正忙...");
+                            }
+                        });
+                    }
                 }
             }
         });
@@ -200,6 +225,8 @@ public class adviceDetail extends Fragment {
 
     private void initView(View view) {
         lineChart = (LineChartView) view.findViewById(R.id.advice_line_chart);
-        textView = (TextView) view.findViewById(R.id.advice_text);
+
+        suggest1 = (TextView) view.findViewById(R.id.main_home_suggest_content1);
+        suggest2 = (TextView) view.findViewById(R.id.main_home_suggest_content2);
     }
 }

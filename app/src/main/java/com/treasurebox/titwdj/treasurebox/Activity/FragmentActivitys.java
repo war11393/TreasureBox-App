@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.treasurebox.titwdj.treasurebox.Fragment.mainFragments.adviceDetail;
+import com.treasurebox.titwdj.treasurebox.Fragment.mainFragments.hotDiscuss;
 import com.treasurebox.titwdj.treasurebox.Fragment.mainFragments.mainAddFriend;
 import com.treasurebox.titwdj.treasurebox.Fragment.noteFragments.notePermission;
 import com.treasurebox.titwdj.treasurebox.Fragment.noteFragments.noteWith;
@@ -63,6 +64,8 @@ public class FragmentActivitys extends BaseActivity {
     public static final String addfriend = "addfriend";
     public static final String addlover = "addlover";
     public static final String adviceDetail = "adviceDetail";
+    public static final String hot1 = "hot1";
+    public static final String hot2 = "hot2";
 
     public static String cameraPath;
 
@@ -109,7 +112,7 @@ public class FragmentActivitys extends BaseActivity {
 
     //根据绑定得标签数据提交碎片替换事务,以后需传递用户信息
     private void setContent(String contentFlag) {
-        if (contentFlag.equals(userrobot)) {
+        if (contentFlag.equals(userrobot) || contentFlag.equals(hot1) || contentFlag.equals(hot2)) {
             scrollview.setVisibility(View.GONE);
             noScroll.setVisibility(View.VISIBLE);
         } else {
@@ -164,6 +167,12 @@ public class FragmentActivitys extends BaseActivity {
                 break;
             case adviceDetail:
                 ft.replace(R.id.activity_fragments_container, new adviceDetail()).commit();
+                break;
+            case hot1:
+                ft.replace(R.id.activity_fragments_container_no_scroll, hotDiscuss.newInstance(1)).commit();
+                break;
+            case hot2:
+                ft.replace(R.id.activity_fragments_container_no_scroll, hotDiscuss.newInstance(2)).commit();
                 break;
             default:
                 LogUtil.d(TAG, "出现不知名标签");

@@ -132,9 +132,7 @@ public class BaseActivity extends AppCompatActivity {
                                     @Override
                                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                                         dialog.dismiss();
-                                        Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        AppManager.getInstance().finishActivity(BaseActivity.this);
+                                        AppManager.getInstance().finishAllActivity();
                                     }
                                 });
                                 dialog.show();

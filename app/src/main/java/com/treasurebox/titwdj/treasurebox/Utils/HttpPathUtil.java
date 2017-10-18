@@ -293,6 +293,24 @@ public class HttpPathUtil {
     public static String selectDriftEvaluate(){
         return pre+"driftBottle/selectOneDriftEvaluate";
     }
+
+    /**
+     * 获取动态圈相关数据
+     * 所需参数：title
+     * @return
+     */
+    public static String showtopic(){
+        return pre+"topic/showtopic";
+    }
+
+    /**
+     * 发表动态圈意见
+     * 所需参数：uid,topicContent,title
+     * @return
+     */
+    public static String addTopic(){
+        return pre+"topic/addTopic";
+    }
     //---------------------------------------------------------------------------以上为已经对接的接口------------------------------------------------------------------------------//
     //==============================好友便签模块======================================
 
