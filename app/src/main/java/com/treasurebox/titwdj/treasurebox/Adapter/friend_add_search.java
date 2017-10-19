@@ -92,7 +92,7 @@ public class friend_add_search extends RecyclerView.Adapter<friend_add_search.Vi
                     }
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        serversLoadTimes = 0;dialog.dismiss();
+                        serversLoadTimes = 0;HttpUtil.closeDialog();
                         String resp = response.body().string();
                         if (Util.JsonUtils.isGoodJson(resp)) {
                             FriendList userFriend = new Gson().fromJson(resp, FriendList.class);

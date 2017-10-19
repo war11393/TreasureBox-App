@@ -208,7 +208,7 @@ public class RegistActivity extends BaseActivity {
                             }
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
-                                serversLoadTimes = 0;dialog.dismiss();
+                                serversLoadTimes = 0;HttpUtil.closeDialog();
                                 final String resp = response.body().string();
                                 LogUtil.d(TAG, resp);
                                 if ("此手机号已经被注册！".equals(resp)){

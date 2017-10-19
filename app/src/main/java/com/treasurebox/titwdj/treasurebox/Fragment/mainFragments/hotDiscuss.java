@@ -27,6 +27,7 @@ import com.treasurebox.titwdj.treasurebox.Utils.Util;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import okhttp3.Call;
@@ -93,7 +94,7 @@ public class hotDiscuss extends Fragment {
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
+                serversLoadTimes = 0;HttpUtil.closeDialog();
                 String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {
@@ -135,12 +136,14 @@ public class hotDiscuss extends Fragment {
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
+                serversLoadTimes = 0;HttpUtil.closeDialog();
                 String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {
                     HotContent hot = new Gson().fromJson(resp, HotContent.class);
+                    Collections.reverse(contentList);
                     contentList.add(hot);
+                    Collections.reverse(contentList);
                     if (getActivity() != null) {
                         getActivity().runOnUiThread(new Runnable() {
                             @Override

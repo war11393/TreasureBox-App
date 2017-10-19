@@ -128,7 +128,7 @@ public class mainWater extends Fragment implements View.OnClickListener{
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
+                serversLoadTimes = 0;HttpUtil.closeDialog();
                 String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {
@@ -161,7 +161,7 @@ public class mainWater extends Fragment implements View.OnClickListener{
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
+                serversLoadTimes = 0;HttpUtil.closeDialog();
                 String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {
@@ -205,7 +205,7 @@ public class mainWater extends Fragment implements View.OnClickListener{
                 }
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    serversLoadTimes = 0;dialog.dismiss();
+                    serversLoadTimes = 0;HttpUtil.closeDialog();
                     String resp = response.body().string();
                     LogUtil.d(TAG, resp);
                     if (resp.equals("已经成功返回大海！")) {
@@ -235,7 +235,7 @@ public class mainWater extends Fragment implements View.OnClickListener{
                 }
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
-                    serversLoadTimes = 0;dialog.dismiss();
+                    serversLoadTimes = 0;HttpUtil.closeDialog();
                     String resp = response.body().string();
                     LogUtil.d(TAG, resp);
                     if (resp.equals("此漂流瓶已经沉入海底！")) {
@@ -264,7 +264,7 @@ public class mainWater extends Fragment implements View.OnClickListener{
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
+                serversLoadTimes = 0;HttpUtil.closeDialog();
                 final String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {
@@ -299,7 +299,7 @@ public class mainWater extends Fragment implements View.OnClickListener{
             }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                serversLoadTimes = 0;dialog.dismiss();
+                serversLoadTimes = 0;HttpUtil.closeDialog();
                 String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (resp.equals("发送成功！")) {

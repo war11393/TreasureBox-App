@@ -123,7 +123,7 @@ public class PopWindow_PAR extends PopupWindow {
                             }
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
-                                serversLoadTimes = 0;dialog.dismiss();
+                                serversLoadTimes = 0;HttpUtil.closeDialog();
                                 String resp = response.body().string();
                                 LogUtil.d(TAG, resp);
                                 if (Util.JsonUtils.isGoodJson(resp)) {
@@ -189,7 +189,7 @@ public class PopWindow_PAR extends PopupWindow {
                             }
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
-                                serversLoadTimes = 0;dialog.dismiss();
+                                serversLoadTimes = 0;HttpUtil.closeDialog();
                                 String resp = response.body().string();
                                 LogUtil.d(TAG, resp);
                                 if (Util.JsonUtils.isGoodJson(resp)) {

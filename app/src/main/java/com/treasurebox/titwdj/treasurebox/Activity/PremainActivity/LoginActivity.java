@@ -113,7 +113,7 @@ public class LoginActivity extends BaseActivity {
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                            serversLoadTimes = 0;dialog.dismiss();
+                            serversLoadTimes = 0;HttpUtil.closeDialog();
                             String resp = response.body().string();
                             if ("您输入的账号不存在！".equals(resp)) {//登陆成功
                                 runOnUiThread(new Runnable() {

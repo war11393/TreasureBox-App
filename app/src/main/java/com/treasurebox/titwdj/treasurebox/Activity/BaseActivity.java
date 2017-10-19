@@ -12,8 +12,10 @@ import android.view.WindowManager;
 
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
+import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.treasurebox.titwdj.treasurebox.Activity.PremainActivity.LoginActivity;
 import com.treasurebox.titwdj.treasurebox.Model.dbflow.FriendList;
+import com.treasurebox.titwdj.treasurebox.Model.dbflow.User_Table;
 import com.treasurebox.titwdj.treasurebox.Utils.AppManager;
 import com.treasurebox.titwdj.treasurebox.Utils.HttpPathUtil;
 import com.treasurebox.titwdj.treasurebox.Utils.HttpUtil;
@@ -47,10 +49,23 @@ import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.serversLoadTimes
 public class BaseActivity extends AppCompatActivity {
     private static final String TAG = "BaseActivity";
 
+    //读取登录信息
+    private static SharedPreferences sharedPreferences;
+    private static boolean isRemember;
+    private static String acc, pwd;
+
     @Override//完整生存期开始
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//设置透明状态栏
         super.onCreate(savedInstanceState, persistentState);
+        sharedPreferences = getSharedPreferences("loginInfo", MODE_PRIVATE);
+        isRemember = sharedPreferences.getBoolean("remember_password", false);
+        acc = sharedPreferences.getString("account", "");
+        pwd = sharedPreferences.getString("password", "");
+
+        MyApplication.user = SQLite.select().from(User.class)
+                .where(User_Table.number.eq(acc)).or(User_Table.phone.eq(acc))
+                .and(User_Table.password.eq(pwd)).querySingle();
     }
     @Override//可见生存期开始
     protected void onStart() {
@@ -62,6 +77,8 @@ public class BaseActivity extends AppCompatActivity {
         } else if (getRunningActivityName().equals("com.treasurebox.titwdj.treasurebox.Activity.PremainActivity.RegistActivity")) {
             return;
         } else if (getRunningActivityName().equals("com.treasurebox.titwdj.treasurebox.Activity.PremainActivity.CompInfoActivity")) {
+            return;
+        } else if (getRunningActivityName().equals("com.treasurebox.titwdj.treasurebox.Activity.PremainActivity.SplashActivity")) {
             return;
         } else {
             checkUserInfo();
@@ -105,11 +122,6 @@ public class BaseActivity extends AppCompatActivity {
 
     //检查登陆信息
     public void checkUserInfo() {
-        //读取登录信息
-        SharedPreferences sharedPreferences = getSharedPreferences("loginInfo", MODE_PRIVATE);
-        boolean isRemember = sharedPreferences.getBoolean("remember_password", false);
-        String acc = sharedPreferences.getString("account", "");
-        String pwd = sharedPreferences.getString("password", "");
         if (isRemember && MyApplication.user == null) {
             //此处执行登陆命令
             RequestBody body = new FormBody.Builder()

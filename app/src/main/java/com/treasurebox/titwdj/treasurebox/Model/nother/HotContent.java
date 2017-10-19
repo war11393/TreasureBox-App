@@ -112,18 +112,7 @@ public class HotContent {
         private int uid;
         private String number;
         private String username;
-        private String phone;
-        private String place;
-        private String constellation;
-        private String blood;
-        private String signature;
-        private String birthday;
         private String ufacing;
-        private String hobby;
-        private String job;
-        private String gender;
-        private String personalPassword;
-        private String fingerprint;
         private int age;
 
         public int getUid() {
@@ -143,126 +132,31 @@ public class HotContent {
         }
 
         public String getUsername() {
-            if (username == null) {
-                return username;
-            } else {
-                return "某某用户";
-            }
+            return username;
         }
 
         public void setUsername(String username) {
             this.username = username;
         }
 
-        public String getPhone() {
-            return phone;
-        }
-
-        public void setPhone(String phone) {
-            this.phone = phone;
-        }
-
-        public String getPlace() {
-            return place;
-        }
-
-        public void setPlace(String place) {
-            this.place = place;
-        }
-
-        public String getConstellation() {
-            return constellation;
-        }
-
-        public void setConstellation(String constellation) {
-            this.constellation = constellation;
-        }
-
-        public String getBlood() {
-            return blood;
-        }
-
-        public void setBlood(String blood) {
-            this.blood = blood;
-        }
-
-        public String getSignature() {
-            return signature;
-        }
-
-        public void setSignature(String signature) {
-            this.signature = signature;
-        }
-
-        public String getBirthday() {
-            return birthday;
-        }
-
-        public void setBirthday(String birthday) {
-            this.birthday = birthday;
-        }
-
         public String getUfacing() {
-            if (ufacing != null) {
-                File file = new File(Util.getImageDownloadPath() + ufacing);
-                File file1 = new File(ufacing);
-                if (file.exists()) {
-                    LogUtil.d("UserModel", "头像已在本地：" + ufacing);
-                    return Util.getImageDownloadPath() + ufacing;
-                } else if (file1.exists()) {
-                    LogUtil.d("UserModel", "头像已在本地：" + ufacing);
-                    return ufacing;
-                } else {
-                    LogUtil.d("UserModel", "头像不在本地：" + ufacing);
-                    Util.downloadImage(new BaseActivity(), HttpPathUtil.getImagePre() +  ufacing, ufacing, Util.headPath);
-                    return HttpPathUtil.getImagePre() +  ufacing;
-                }
-            } else
-                return R.drawable.part_defaultimage + "";
+            File file = new File(Util.getImageDownloadPath() + ufacing);
+            File file1 = new File(ufacing);
+            if (file.exists()) {
+                LogUtil.d("UserModel", "头像已在本地：" + ufacing);
+                return Util.getImageDownloadPath() + ufacing;
+            } else if (file1.exists()) {
+                LogUtil.d("UserModel", "头像已在本地：" + ufacing);
+                return ufacing;
+            } else {
+                LogUtil.d("UserModel", "头像不在本地：" + ufacing);
+                Util.downloadImage(new BaseActivity(), HttpPathUtil.getImagePre() + ufacing, ufacing, Util.headPath);
+                return HttpPathUtil.getImagePre() + ufacing;
+            }
         }
 
         public void setUfacing(String ufacing) {
             this.ufacing = ufacing;
-        }
-
-        public String getHobby() {
-            return hobby;
-        }
-
-        public void setHobby(String hobby) {
-            this.hobby = hobby;
-        }
-
-        public String getJob() {
-            return job;
-        }
-
-        public void setJob(String job) {
-            this.job = job;
-        }
-
-        public String getGender() {
-            return gender;
-        }
-
-        public void setGender(String gender) {
-            this.gender = gender;
-        }
-
-        public String getPersonalPassword() {
-            return personalPassword;
-        }
-
-        public void setPersonalPassword(String personalPassword) {
-            this.personalPassword = personalPassword;
-        }
-
-        public String getFingerprint() {
-            return fingerprint;
-        }
-
-        public void setFingerprint(String fingerprint) {
-            this.fingerprint = fingerprint;
         }
 
         public int getAge() {

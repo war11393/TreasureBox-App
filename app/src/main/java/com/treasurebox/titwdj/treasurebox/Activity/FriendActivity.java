@@ -52,6 +52,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.client;
+import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.closeDialog;
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.dialog;
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.maxLoadTimes;
 import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.serversLoadTimes;
@@ -180,7 +181,7 @@ public class FriendActivity extends AppCompatActivity {
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                            serversLoadTimes = 0;dialog.dismiss();
+                            serversLoadTimes = 0;HttpUtil.closeDialog();
                             String res = response.body().string();
                             LogUtil.d(TAG, res);
                             if (Util.JsonUtils.isGoodJson(res)) {
@@ -247,7 +248,7 @@ public class FriendActivity extends AppCompatActivity {
                     }
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        serversLoadTimes = 0;dialog.dismiss();
+                        serversLoadTimes = 0;HttpUtil.closeDialog();
                         String resp = response.body().string();
                         LogUtil.d(TAG, resp);
                         SQLite.delete(FriendList.class)

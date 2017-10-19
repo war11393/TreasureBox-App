@@ -102,7 +102,7 @@ public class friend_list extends RecyclerView.Adapter<friend_list.ViewHolder> {
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                            serversLoadTimes = 0;dialog.dismiss();
+                            serversLoadTimes = 0;HttpUtil.closeDialog();
                             String resp = response.body().string();
                             LogUtil.d(TAG, resp);
                             if (Util.JsonUtils.isGoodJson(resp)) {
@@ -183,7 +183,7 @@ public class friend_list extends RecyclerView.Adapter<friend_list.ViewHolder> {
                                     }
                                     @Override
                                     public void onResponse(Call call, Response response) throws IOException {
-                                        serversLoadTimes = 0;dialog.dismiss();
+                                        serversLoadTimes = 0;HttpUtil.closeDialog();
                                         String resp = response.body().string();
                                         if ("".equals(resp)) {//修改成功
                                             LogUtil.d(TAG, "修改备注名：" + holder.newFriendName.getText().toString().trim());

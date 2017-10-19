@@ -91,7 +91,7 @@ public class friend_info_memo extends RecyclerView.Adapter<friend_info_memo.View
                                                 }
                                                 @Override
                                                 public void onResponse(Call call, Response response) throws IOException {
-                                                    serversLoadTimes = 0;dialog.dismiss();
+                                                    serversLoadTimes = 0;HttpUtil.closeDialog();
                                                     String resp = response.body().string();
                                                     if ("".equals(resp)) {
                                                         List<MemoList> memoList = FriendActivity.friendInfo.getMemoList();

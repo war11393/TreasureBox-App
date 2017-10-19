@@ -77,7 +77,7 @@ public class userCallUs extends Fragment {
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                            serversLoadTimes = 0;dialog.dismiss();
+                            serversLoadTimes = 0;HttpUtil.closeDialog();
                             String resp = response.body().string();
                             LogUtil.d(TAG, resp);
                             if (getActivity() != null) {
