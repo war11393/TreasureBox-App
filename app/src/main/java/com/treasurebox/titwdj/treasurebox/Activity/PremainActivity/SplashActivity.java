@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -24,6 +23,7 @@ import com.treasurebox.titwdj.treasurebox.Utils.LogUtil;
 import com.treasurebox.titwdj.treasurebox.Utils.Util;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -32,6 +32,10 @@ import okhttp3.Callback;
 import okhttp3.FormBody;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+
+import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.client;
+import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.maxLoadTimes;
+import static com.treasurebox.titwdj.treasurebox.Utils.HttpUtil.serversLoadTimes;
 
 public class SplashActivity extends BaseActivity {
     private static final String TAG = "SplashActivity";
@@ -143,10 +147,20 @@ public class SplashActivity extends BaseActivity {
             HttpUtil.sendPostOkHttpRequest(HttpPathUtil.login(), body, new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    e.printStackTrace();
+                    LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
+                    if(e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
+                    {
+                        serversLoadTimes++;
+                        client.newCall(call.request()).enqueue(this);
+                    } else {
+                        serversLoadTimes = 0;
+                        e.printStackTrace();
+                        HttpUtil.showError();
+                    }
                 }
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
+                    serversLoadTimes = 0;
                     final String resp = response.body().string();
                     LogUtil.d(TAG, resp);
                     if ("您输入的账号不存在！".equals(resp)||"您输入的密码不正确！".equals(resp)||"您输入的手机号不存在！".equals(resp)) {//登陆成功
@@ -198,9 +212,21 @@ public class SplashActivity extends BaseActivity {
                 .add("uid", MyApplication.user.getUid() + "").build();
         HttpUtil.sendPostOkHttpRequest(HttpPathUtil.selectAllFriends(), body, new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {e.printStackTrace();}
+            public void onFailure(Call call, IOException e) {
+                LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
+                if(e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
+                {
+                    serversLoadTimes++;
+                    client.newCall(call.request()).enqueue(this);
+                } else {
+                    serversLoadTimes = 0;
+                    e.printStackTrace();
+                    HttpUtil.showError();
+                }
+            }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                serversLoadTimes = 0;
                 String resp = response.body().string();
                 if (resp.equals("您还没有好友哦，快去添加几个好友吧！")) {
                     MyApplication.userFriendLists = new ArrayList<FriendList>();
@@ -227,9 +253,21 @@ public class SplashActivity extends BaseActivity {
         final Message msg = new Message();
         HttpUtil.sendOkHttpRequest(HttpPathUtil.selectValue() + "?number=" + MyApplication.user.getNumber(), new Callback() {
             @Override
-            public void onFailure(Call call, IOException e) {e.printStackTrace();}
+            public void onFailure(Call call, IOException e) {
+                LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
+                if(e.getClass().equals(SocketTimeoutException.class) && serversLoadTimes < maxLoadTimes)//如果超时并未超过指定次数，则重新连接
+                {
+                    serversLoadTimes++;
+                    client.newCall(call.request()).enqueue(this);
+                } else {
+                    serversLoadTimes = 0;
+                    e.printStackTrace();
+                    HttpUtil.showError();
+                }
+            }
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                serversLoadTimes = 0;
                 String resp = response.body().string();
                 LogUtil.d(TAG, resp);
                 if (Util.JsonUtils.isGoodJson(resp)) {

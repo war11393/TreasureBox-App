@@ -60,7 +60,11 @@ public class ComAbility {
     }
 
     public static int doubleToInt(double value) {
-        return round(value*100*4/100);
+        if (value < 0.5) {
+            return 2 - round(value*100*2/100);
+        } else {
+            return 2 + round(value*100*2/100);
+        }
     }
     public static int round(double value) {
         return (int) (value + 0.5);

@@ -85,21 +85,22 @@ public class HttpUtil {
     }
     //显示连接失败弹窗
     public static void showError() {
-        errorDialog = new SweetAlertDialog(AppManager.getInstance().getTopActivity(), SweetAlertDialog.WARNING_TYPE)
-                .setTitleText("WARN").setContentText("系统正忙，请稍后再试>_<").setConfirmText("好的");
-        errorDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                errorDialog.dismiss();
-            }
-        });
         if (AppManager.getInstance().getTopActivity() != null)
             AppManager.getInstance().getTopActivity().runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
+                    errorDialog = new SweetAlertDialog(AppManager.getInstance().getTopActivity(), SweetAlertDialog.WARNING_TYPE)
+                            .setTitleText("WARN").setContentText("系统正忙，请稍后再试>_<").setConfirmText("好的");
+                    errorDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            errorDialog.dismiss();
+                        }
+                    });
                     errorDialog.show();
                 }
             });
+        closeDialog();
     }
     //显示连接失败弹窗
     public static void showErrorToast() {

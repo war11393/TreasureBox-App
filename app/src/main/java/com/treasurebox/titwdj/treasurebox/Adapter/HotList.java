@@ -2,6 +2,7 @@ package com.treasurebox.titwdj.treasurebox.Adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -56,8 +57,11 @@ public class HotList extends RecyclerView.Adapter<HotList.ViewHolder> {
             holder.linearLayout.setVisibility(View.VISIBLE);
             holder.itemView.setBackgroundColor(0xffffffff);
             HotContent hot = contentList.get(position - 1);
-            Glide.with(mActivity).load(hot.getUser().getUfacing()).into(holder.imageView);
-            holder.userName.setText(hot.getUser().getUsername());
+            String name = Util.RandomName.getRandomDoubleName();
+            Glide.with(mActivity).load("").placeholder(
+                    Util.MakeRandomPhoto.getInstance().setWidth(48).setHeight(48).setTxtSize(20).setTxtColor(Color.parseColor("#ffffff")).setShowNum(2).makeRandomPhotoDrawable(name.substring(0,1))
+            ).dontAnimate().into(holder.imageView);
+            holder.userName.setText(name);
             holder.content.setText(hot.getTopicContent());
             holder.time.setText(hot.getTime());
         }
