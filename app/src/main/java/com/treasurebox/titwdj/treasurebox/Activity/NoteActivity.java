@@ -65,7 +65,6 @@ public class NoteActivity extends BaseActivity implements FaceFragment.OnEmojiCl
     private note_list noteAdapter;
     private int status = 0;//0--自己的纸条，1--好友的纸条
     private int flag = 3;//初始显示项：3--我的纸条，4--好友纸条
-    private SweetAlertDialog programDia;
     private int loadCount = 2, oldCount = 1;
 
     //纸条数据数据存放处
@@ -118,9 +117,9 @@ public class NoteActivity extends BaseActivity implements FaceFragment.OnEmojiCl
                 noteAdapter = new note_list(NoteActivity.this, allNotes, status);
                 noteRecyclerView.setAdapter(noteAdapter);
                 if (status == 0) {
-                    noteRecyclerView.scrollToPosition(myNoteId);
+                    noteRecyclerView.scrollToPosition(myNoteId - 7);
                 } else if (status == 1) {
-                    noteRecyclerView.scrollToPosition(myFriendNoteId);
+                    noteRecyclerView.scrollToPosition(myFriendNoteId - 7);
                 }
             }
         });
@@ -131,7 +130,6 @@ public class NoteActivity extends BaseActivity implements FaceFragment.OnEmojiCl
         noteRecyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener((LinearLayoutManager) noteRecyclerView.getLayoutManager()) {
             @Override
             public void onLoadMore(int currentPage) {
-//                programDia.show();
                 if (loadCount == oldCount) {
                     if (status == 0) {
                         loadCount++;
@@ -279,10 +277,6 @@ public class NoteActivity extends BaseActivity implements FaceFragment.OnEmojiCl
 
 //        initSwipeRefresh();//初始化下拉菜单
         setLoadMore();//配置上拉显示更多
-
-        programDia = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
-        programDia.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
-        programDia.setCancelable(true);
     }
 
     public FloatingActionsMenu initFloatButton() {
@@ -476,9 +470,6 @@ public class NoteActivity extends BaseActivity implements FaceFragment.OnEmojiCl
             @Override
             public void run() {
                 noteSwipeRefresh.setRefreshing(false);
-                if (programDia.isShowing()) {
-                    programDia.dismiss();
-                }
             }
         });
     }

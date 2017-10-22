@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.treasurebox.titwdj.treasurebox.Activity.MainActivity;
 import com.treasurebox.titwdj.treasurebox.R;
+import com.treasurebox.titwdj.treasurebox.Service.MyReceiver;
 import com.treasurebox.titwdj.treasurebox.Utils.AppManager;
 import com.treasurebox.titwdj.treasurebox.Utils.HttpPathUtil;
 import com.treasurebox.titwdj.treasurebox.Utils.HttpUtil;
@@ -93,11 +94,12 @@ public class LoginActivity extends BaseActivity {
                 RequestBody body = new FormBody.Builder()
                         .add("number", acc)
                         .add("password", pwd)
+                        .add("channelId", MyReceiver.getChannelId())
                         .build();
                 if ("".equals(acc) || "".equals(pwd)) {
                     Toast.makeText(LoginActivity.this, "账号或密码不能为空", Toast.LENGTH_SHORT).show();
                 } else {
-                    HttpUtil.sendPostOkHttpRequest(HttpPathUtil.login(), body, true, new Callback() {
+                    HttpUtil.sendPostOkHttpRequest(HttpPathUtil.login(), body, new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
                             LogUtil.d("LoginActivity", e.toString() + "   正重新尝试链接...");
@@ -113,7 +115,7 @@ public class LoginActivity extends BaseActivity {
                         }
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                            serversLoadTimes = 0;HttpUtil.closeDialog();
+                            serversLoadTimes = 0;
                             String resp = response.body().string();
                             if ("您输入的账号不存在！".equals(resp)) {//登陆成功
                                 runOnUiThread(new Runnable() {
@@ -170,6 +172,7 @@ public class LoginActivity extends BaseActivity {
                                     editor.apply();
 
                                     Intent intent = new Intent(LoginActivity.this, SplashActivity.class);
+                                    intent.putExtra("user", resp);
                                     startActivity(intent);
                                     AppManager.getInstance().finishActivity(LoginActivity.this);
                                 } else {

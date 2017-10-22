@@ -199,8 +199,15 @@ public class SplashActivity extends BaseActivity {
                 }
             });
         } else {
-            msg.what = LOGIN_False;
-            handler.sendMessage(msg);
+            if (getIntent().getStringExtra("user") != null && (!getIntent().getStringExtra("user").equals(""))) {
+                MyApplication.user = new Gson().fromJson(getIntent().getStringExtra("user"), User.class);
+                MyApplication.user.save();
+                msg.what = LOGIN_OK;
+                handler.sendMessage(msg);
+            } else {
+                msg.what = LOGIN_False;
+                handler.sendMessage(msg);
+            }
         }
     }
 

@@ -84,10 +84,10 @@ public class CompInfoActivity extends BaseActivity {
 
     private void setView() {
         //装载数据
-        headImagePath = HttpPathUtil.getImagePre() + "tit.jpg";
+        headImagePath = HttpPathUtil.getImagePre() + "tit.png";
         final User user = new User();
         user.setBlood("O型");
-        user.setUfacing("tit.jpg");
+        user.setUfacing("tit.png");
         Glide.with(this).load(headImagePath).into(compinfoHeadimage);
 
         //头像点击监听,弹出弹窗
@@ -129,7 +129,7 @@ public class CompInfoActivity extends BaseActivity {
                 builder.addFormDataPart("age", compinfoAge.getText().toString().trim().substring(3));
                 RequestBody body = builder.build();
 
-                HttpUtil.sendPostOkHttpRequest(HttpPathUtil.updateRoleData(), body, true, new Callback() {
+                HttpUtil.sendPostOkHttpRequest(HttpPathUtil.updateRoleData(), body, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
@@ -145,7 +145,7 @@ public class CompInfoActivity extends BaseActivity {
                     }
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        serversLoadTimes = 0;HttpUtil.closeDialog();
+                        serversLoadTimes = 0;
                         String resp = response.body().string();
                         LogUtil.d(TAG, resp);
                         if (Util.JsonUtils.isGoodJson(resp)) {
@@ -162,6 +162,8 @@ public class CompInfoActivity extends BaseActivity {
                                         @Override
                                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                                             dialog.dismiss();
+                                            Intent intent = new Intent(CompInfoActivity.this, LoginActivity.class);
+                                            startActivity(intent);
                                             AppManager.getInstance().finishActivity(CompInfoActivity.class);
                                         }
                                     });

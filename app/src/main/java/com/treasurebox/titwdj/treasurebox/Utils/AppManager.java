@@ -5,6 +5,8 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 
+import com.treasurebox.titwdj.treasurebox.Activity.BaseActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -104,7 +106,11 @@ public class AppManager {
     }
     //返回当前任务栈的大小
     public Activity getTopActivity() {
-        return mActivityStack.get(mActivityStack.size() - 1);
+        if (mActivityStack.size() == 0) {
+            return null;
+        } else {
+            return mActivityStack.get(mActivityStack.size() - 1);
+        }
     }
 
     private AppManager() {

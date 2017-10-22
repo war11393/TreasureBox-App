@@ -417,8 +417,10 @@ public class mainWater extends Fragment implements View.OnClickListener{
                     mainWaterReview.setVisibility(View.GONE);
                     getContainer.setVisibility(View.GONE);
 
-                    adapter_notes = new DriftNotes(DriftNotes, mainWater.this);
-                    historyReview.setAdapter(adapter_notes);
+                    if (getActivity() != null) {
+                        adapter_notes = new DriftNotes(DriftNotes, mainWater.this, getActivity());
+                        historyReview.setAdapter(adapter_notes);
+                    }
                 }
             });
         }

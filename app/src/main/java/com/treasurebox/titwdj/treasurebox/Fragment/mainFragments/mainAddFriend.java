@@ -104,6 +104,7 @@ public class mainAddFriend extends Fragment implements View.OnClickListener {
                         serversLoadTimes = 0;HttpUtil.closeDialog();
                         final String resp = response.body().string();
                         LogUtil.d(TAG, resp);
+                        LogUtil.d(TAG, MyApplication.user.getUid() + "");
                         final List<FriendList> userFriends = SQLite.select()
                                 .from(FriendList.class)
                                 .where(FriendList_Table.uid.eq(MyApplication.user.getUid()))
@@ -112,10 +113,16 @@ public class mainAddFriend extends Fragment implements View.OnClickListener {
                             @Override
                             public void run() {
                                 userInfoList2 = JSON.parseArray(resp, User.class);
-                                for (User userInfo:userInfoList) {
-                                    for (FriendList userFriend: userFriends) {
-                                        if (!userInfo.getNumber().equals(userFriend.getFriendNumber())){
-                                            userInfoList.add(userInfo);
+                                for (User userInfo:userInfoList2) {
+                                    LogUtil.d(TAG, userInfo.getNumber() + "");
+                                    if (userFriends == null) {
+                                        userInfoList.add(userInfo);
+                                    } else {
+                                        for (FriendList userFriend: userFriends) {
+                                            LogUtil.d(TAG, userFriend.getFriendNumber() + "");
+                                            if (!userInfo.getNumber().equals(userFriend.getFriendNumber())){
+                                                userInfoList.add(userInfo);
+                                            }
                                         }
                                     }
                                 }

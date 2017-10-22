@@ -14,8 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.baidu.android.pushservice.PushConstants;
-import com.baidu.android.pushservice.PushManager;
 import com.google.gson.Gson;
 import com.treasurebox.titwdj.treasurebox.R;
 import com.treasurebox.titwdj.treasurebox.Service.MyReceiver;
@@ -80,9 +78,6 @@ public class RegistActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_regist);
         initView();//初始化视图
-
-        //开启推送业务，为设备获取通信id
-        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "luCn0f4d0zrGRxoCtX9fD6qRE3s4rl7u");
 
         send.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +187,7 @@ public class RegistActivity extends BaseActivity {
                                 .add("repassword", repassword)
                                 .add("channelId", MyReceiver.getChannelId())
                                 .build();
-                        HttpUtil.sendPostOkHttpRequest(HttpPathUtil.addUser(), body, true, new Callback() {
+                        HttpUtil.sendPostOkHttpRequest(HttpPathUtil.addUser(), body, new Callback() {
                             @Override
                             public void onFailure(Call call, IOException e) {
                                 LogUtil.d(TAG, e.toString() + "   正重新尝试链接...");
@@ -208,7 +203,7 @@ public class RegistActivity extends BaseActivity {
                             }
                             @Override
                             public void onResponse(Call call, Response response) throws IOException {
-                                serversLoadTimes = 0;HttpUtil.closeDialog();
+                                serversLoadTimes = 0;
                                 final String resp = response.body().string();
                                 LogUtil.d(TAG, resp);
                                 if ("此手机号已经被注册！".equals(resp)){
@@ -221,6 +216,7 @@ public class RegistActivity extends BaseActivity {
                                                     .show();
                                         }
                                     });
+                                    regist.setEnabled(true);
                                 } else {
                                     Gson gson = new Gson();
                                     final User userInfoSample = gson.fromJson(resp, User.class);
@@ -259,6 +255,7 @@ public class RegistActivity extends BaseActivity {
                     }else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE){
                         //获取验证码成功
                         LogUtil.d(TAG, "afterEvent: 获取验证码成功");
+                        regist.setEnabled(true);
                     }
                 }else{
                     ((Throwable) data).printStackTrace();

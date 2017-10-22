@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
         frameLayout = (FrameLayout) findViewById(R.id.main_container_no_scroll);
 
         //开启推送业务，为设备获取通信id
-        PushManager.startWork(getApplicationContext(), PushConstants.LOGIN_TYPE_API_KEY, "luCn0f4d0zrGRxoCtX9fD6qRE3s4rl7u");
+        PushManager.startWork(this, PushConstants.LOGIN_TYPE_API_KEY, "luCn0f4d0zrGRxoCtX9fD6qRE3s4rl7u");
 
         setFirstActionBar();
 

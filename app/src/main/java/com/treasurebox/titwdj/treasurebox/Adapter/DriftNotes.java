@@ -1,5 +1,6 @@
 package com.treasurebox.titwdj.treasurebox.Adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -42,10 +43,12 @@ public class DriftNotes extends RecyclerView.Adapter<DriftNotes.ViewHolder> {
     private Context mContext;
     private List<DriftNote> DriftNotes;
     private mainWater mainWater;
+    private Activity mActivity;
 
-    public DriftNotes(List<DriftNote> DriftNotes, mainWater mainWater) {
+    public DriftNotes(List<DriftNote> DriftNotes, mainWater mainWater, Activity activity) {
         this.DriftNotes = DriftNotes;
         this.mainWater = mainWater;
+        this.mActivity = activity;
     }
 
     @Override
@@ -80,7 +83,7 @@ public class DriftNotes extends RecyclerView.Adapter<DriftNotes.ViewHolder> {
                             List<DriftNote.DriftEvaluateListBean> evaluateList = JSON.parseArray(resp, DriftNote.DriftEvaluateListBean.class);
                             drift.setDrift_evaluateList(evaluateList);
                         } else {
-                            AppManager.getInstance().getTopActivity().runOnUiThread(new Runnable() {
+                            mActivity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     Toast.makeText(mContext, "加载评论失败", Toast.LENGTH_SHORT).show();

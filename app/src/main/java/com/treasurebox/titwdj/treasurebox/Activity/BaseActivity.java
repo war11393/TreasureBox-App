@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 
 import com.alibaba.fastjson.JSON;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.google.gson.Gson;
 import com.raizlabs.android.dbflow.sql.language.SQLite;
 import com.treasurebox.titwdj.treasurebox.Activity.PremainActivity.LoginActivity;
@@ -58,6 +60,10 @@ public class BaseActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);//设置透明状态栏
         super.onCreate(savedInstanceState, persistentState);
+
+        //开启推送业务，为设备获取通信id
+        PushManager.startWork(this, PushConstants.LOGIN_TYPE_API_KEY, "luCn0f4d0zrGRxoCtX9fD6qRE3s4rl7u");
+
         sharedPreferences = getSharedPreferences("loginInfo", MODE_PRIVATE);
         isRemember = sharedPreferences.getBoolean("remember_password", false);
         acc = sharedPreferences.getString("account", "");
